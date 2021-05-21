@@ -28,13 +28,19 @@ module.exports = {
     coinmarketcap: process.env.COIN_MARKET_CAP_API_KEY
   },
   networks: {
-    hardhat: {},
+    hardhat: {
+      hardfork: 'berlin',
+      forking: {
+        url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`
+      },
+      blockGasLimit: 15000000
+    },
     local: {
-      url: "http://127.0.0.1:8545/",
+      url: "http://127.0.0.1:8545",
       timeout: 2000000
     }
   },
-  solidity: "0.7.3",
+  solidity: "0.8.4",
   vyper: {
     version: "0.2.4"
   },
